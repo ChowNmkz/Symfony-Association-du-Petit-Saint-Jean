@@ -1,0 +1,44 @@
+.bodymain {
+  background-color: #ffffec;
+}
+
+.nav-wrapper {
+  background-color: #c8aa99 !important;
+  font-size: 14px;
+  color: black;
+}
+
+.page-footer {
+  background-color: #f2e7b7 !important;
+  font-size: 14px;
+  color: black !important;
+}
+
+nav ul a {
+  color: #010101;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background-color: #ffffec;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+.teal {
+  background-color: #e3d9ad !important;
+}
+
+#logo_title {
+  background-color: #f2e7b7;
+  height: 250px;
+  width: 100%;
+}
+
+#LogoTitle {
+  margin-top: 20px;
+}
