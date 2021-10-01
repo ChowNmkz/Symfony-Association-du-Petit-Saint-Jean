@@ -1,15 +1,19 @@
+* {
+  font-family: open sans;
+}
+
 .bodymain {
   background-color: #ffffec;
 }
 
 .nav-wrapper {
-  background-color: #c8aa99 !important;
+  background-color: #cdc963 !important;
   font-size: 14px;
   color: black;
 }
 
 .page-footer {
-  background-color: #f2e7b7 !important;
+  background-color: #555555 !important;
   font-size: 14px;
   color: black !important;
 }
@@ -41,4 +45,9 @@ main {
 
 #LogoTitle {
   margin-top: 20px;
+}
+
+#title-main {
+  color: #c8aa99;
+  font-size: 35px;
 }

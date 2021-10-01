@@ -14,6 +14,15 @@
       {{ encore_entry_link_tags('app') }}
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" />
+      <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+        as="style"
+        onload="this.onload=null;this.rel='stylesheet'" />
+      <noscript>
+        <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" />
+      </noscript>
     {% endblock %}
 
     {% block javascripts %}
