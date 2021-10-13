@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminController!
+{% endblock %}
+
+{% block content %}
+	<style>
+		header,
+		main,
+		footer {
+			padding-left: 300px;
+		}
+
+		@media only screen and(max-width : 992px) {
+			header,
+			main,
+			footer {
+				padding-left: 0;
+			}
+		}
+	</style>
+	<ul id="slide-out" class="sidenav sidenav-fixed">
+		<li>
+			<a href="{{ path( 'admin_doleances_home' ) }}">Gestion des doléances</a>
+		</li>
+		<li>
+			<a href="{{ path( 'admin_evenement_home' ) }}">Gestion des évènements</a>
+		</li>
+	</ul>
+	<a href="#" data-target="slide-out" class="sidenav-trigger">
+		<i class="material-icons">menu</i>
+	</a>
+{% endblock %}

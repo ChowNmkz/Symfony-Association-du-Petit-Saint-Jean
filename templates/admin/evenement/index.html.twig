@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gérer les évènements{% endblock %}
+
+{% block content %}
+	<h1>Gérer les évènements</h1>
+    <a href="{{ path("admin_evenement_ajout") }}" class="btn blue">Ajouter un évènement</a>
+	<table class="table striped centered responsive-table">
+		<thead>
+			<tr>
+				<th>ID</th>
+                <th>Date</th>
+				<th>Nom</th>
+				<th>Description</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+        {% for evenement in evenement %}            
+			<tr>
+				<td>{{evenement.id}}</td>
+				<td>{{evenement.date|date("d/m/Y")}}</td>
+				<td>{{evenement.name}}</td>
+                <td>{{evenement.description}}</td>
+				<td class="text-center">
+                    <a href="{{ path("admin_evenement_modifier", {id: evenement.id}) }}" class="btn blue">Modifier</a>
+                </td>
+			</tr>
+        {% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

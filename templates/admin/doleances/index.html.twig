@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gérer les catégories{% endblock %}
+
+{% block content %}
+	<h1>Gérer les doléances</h1>
+    <a href="{{ path("admin_doleances_ajout") }}" class="btn blue">Ajouter une doléance</a>
+	<table class="table striped centered responsive-table">
+		<thead>
+			<tr>
+				<th>ID</th>
+                <th>Date</th>
+				<th>Titre</th>
+				<th>Description</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+        {% for doleances in doleances %}            
+			<tr>
+				<td>{{doleances.id}}</td>
+				<td>{{doleances.date|date("d/m/Y")}}</td>
+				<td>{{doleances.title}}</td>
+                <td>{{doleances.description}}</td>
+				<td class="text-center">
+                    <a href="{{ path("admin_doleances_modifier", {id: doleances.id}) }}" class="btn blue">Modifier</a>
+                </td>
+			</tr>
+        {% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8"/>
     <title>
-      {% block title %}
-        Welcome!
-      {% endblock %}
+        {% block title %}
+            Welcome!
+        {% endblock %}
     </title>
     {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
     {% block stylesheets %}
-      {{ encore_entry_link_tags('materialize') }}
-      {{ encore_entry_link_tags('app') }}
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        rel="stylesheet" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" />
-      <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
-        as="style"
-        onload="this.onload=null;this.rel='stylesheet'" />
-      <noscript>
-        <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" />
-      </noscript>
+        {{ encore_entry_link_tags('materialize') }}
+        {{ encore_entry_link_tags('app') }}
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+              rel="stylesheet"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link rel="preload"
+              href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+              as="style"
+              onload="this.onload=null;this.rel='stylesheet'"/>
+        <noscript>
+            <link rel="stylesheet"
+                  href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"/>
+        </noscript>
     {% endblock %}
 
     {% block javascripts %}
-      {{ encore_entry_script_tags('materialize') }}
-      {{ encore_entry_script_tags('app') }}
+        {{ encore_entry_script_tags('materialize') }}
+        {{ encore_entry_script_tags('app') }}
     {% endblock %}
-  </head>
+</head>
 
-  <main>
+<main>
     {% block navbar %}
-      {% include './block/navbar.html.twig' %}
+        {% include './block/navbar.html.twig' %}
     {% endblock %}
     {% block body %}
-      <body class="container z-depth-5">
+        <body>
         {% block content %}
 
         {% endblock %}
-      </body>
+        </body>
     {% endblock %}
-  </main>
-  {% block footer %}
+</main>
+{% block footer %}
     {% include './block/footer.html.twig' %}
-  {% endblock %}
+{% endblock %}
 </html>
