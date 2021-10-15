@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"/>
+		<title>
+			{% block title %}
+				Interface d'administration
+			{% endblock %}
+		</title>
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('materialize') }}
+			{{ encore_entry_link_tags('app') }}
+			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+			<link rel="preconnect" href="https://fonts.gstatic.com"/>
+			<link rel="preload" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'"/>
+			<noscript>
+				<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"/>
+			</noscript>
+		{% endblock %}
+
+		{% block javascripts %}
+			{{ encore_entry_script_tags('materialize') }}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+	</head>
+
+	<main>
+		{% block body %}
+			<body>
+				<ul id="slide-out" class="sidenav">
+					<li>
+						<div class="user-view">
+							<div class="background">
+								<img src="img/logo.png">
+							</div>
+							<a href="#user"><img class="circle" src="images/yuna.jpg"></a>
+							<a href="#name">
+								<span class="white-text name">John Doe</span>
+							</a>
+							<a href="#email">
+								<span class="white-text email">jdoe@example.com</span>
+							</a>
+						</div>
+					</li>
+					<li>
+						<a href="#!">
+							<i class="material-icons">cloud</i>First Link With Icon</a>
+					</li>
+					<li>
+						<a href="#!">Second Link</a>
+					</li>
+					<li>
+						<div class="divider"></div>
+					</li>
+					<li>
+						<a class="subheader">Subheader</a>
+					</li>
+					<li>
+						<a class="waves-effect" href="#!">Third Link With Waves</a>
+					</li>
+				</ul>
+				<a data-target="slide-out" class="sidenav-trigger btn-floating btn-large waves-effect waves-light red">
+					<i class="material-icons">view_list</i>
+				</a>
+				{% block content %}
+				{% endblock %}
+		{% endblock %}
+					</body>
+				</main>
+			</html>
