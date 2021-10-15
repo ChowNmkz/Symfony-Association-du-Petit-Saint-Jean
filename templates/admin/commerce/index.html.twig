@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CommerceController!
+{% endblock %}
+
+{% block body %}
+	<h1>Gérer les commerces du quartier</h1>
+	<a href="{{ path("admin_commerce_ajout") }}" class="waves-effect waves-light btn-small">Ajouter une doléance</a>
+	<table class="table striped centered responsive-table">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Nom</th>
+				<th>Description</th>
+				<th>Adresse</th>
+				<th>Image</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for commerce in commerce %}
+				<tr>
+					<td>{{commerce.id}}</td>
+					<td>{{commerce.name}}</td>
+					<td>{{commerce.description}}</td>
+					<td>{{commerce.address}}</td>
+					<td>{{commerce.imgpath}}</td>
+					<td class="text-center">
+						<a href="{{ path("admin_commerce_modifier", {id: commerce.id}) }}" class="btn blue">Modifier</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

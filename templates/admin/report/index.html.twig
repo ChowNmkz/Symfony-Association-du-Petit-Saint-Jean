@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gérer les rapports{% endblock %}
+
+{% block content %}
+	<h1>Gérer les rapports</h1>
+    <a href="{{ path("admin_report_ajout") }}" class="btn blue">Ajouter un rapport</a>
+	<table class="table striped centered responsive-table">
+		<thead>
+			<tr>
+				<th>ID</th>
+                <th>Date</th>
+				<th>Nom</th>
+				<th>Description</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+        {% for report in report %}            
+			<tr>
+				<td>{{report.id}}</td>
+				<td>{{report.date|date("d/m/Y")}}</td>
+				<td>{{report.name}}</td>
+                <td>{{report.description}}</td>
+				<td class="text-center">
+                    <a href="{{ path("admin_report_modifier", {id: report.id}) }}" class="btn blue">Modifier</a>
+                </td>
+			</tr>
+        {% endfor %}
+		</tbody>
+	</table>
+{% endblock %}
