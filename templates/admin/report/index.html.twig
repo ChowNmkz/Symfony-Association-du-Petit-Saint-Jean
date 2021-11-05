@@ -3,27 +3,25 @@
 {% block title %}Gérer les rapports{% endblock %}
 
 {% block content %}
-	<h1>Gérer les rapports</h1>
-    <a href="{{ path("admin_report_ajout") }}" class="btn blue">Ajouter un rapport</a>
+	<h1 class="titre-form">Gérer les rapports d'AG</h1>
+    <a href="{{ path("admin_report_ajout") }}" class="btn">Ajouter un rapport d'assemblée générale</a>
 	<table class="table striped centered responsive-table">
 		<thead>
-			<tr>
-				<th>ID</th>
+			<tr class="tableau-admin">
                 <th>Date</th>
 				<th>Nom</th>
-				<th>Description</th>
+				<th>Contenu du rapport</th>
 				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
         {% for report in report %}            
-			<tr>
-				<td>{{report.id}}</td>
+			<tr class="tableau-admin">
 				<td>{{report.date|date("d/m/Y")}}</td>
 				<td>{{report.name}}</td>
                 <td>{{report.description}}</td>
 				<td class="text-center">
-                    <a href="{{ path("admin_report_modifier", {id: report.id}) }}" class="btn blue">Modifier</a>
+                    <a href="{{ path("admin_report_modifier", {id: report.id}) }}" class="btn">Modifier</a>
                 </td>
 			</tr>
         {% endfor %}

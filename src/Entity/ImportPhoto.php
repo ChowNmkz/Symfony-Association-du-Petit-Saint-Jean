@@ -33,9 +33,14 @@ class ImportPhoto
     private $path_photo;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Evenement::class, inversedBy="import_photo")
+     * @ORM\ManyToOne(targetEntity=Evenement::class, inversedBy="import_photo", cascade={"persist"})
      */
     private $evenement;
+
+    public function __construct()
+    {
+        $this->Date = new \DateTime('now');
+    }
 
     public function getId(): ?int
     {

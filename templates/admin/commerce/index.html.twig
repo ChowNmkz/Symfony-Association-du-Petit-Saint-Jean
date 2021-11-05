@@ -3,13 +3,12 @@
 {% block title %}Hello CommerceController!
 {% endblock %}
 
-{% block body %}
+{% block content %}
 	<h1>Gérer les commerces du quartier</h1>
-	<a href="{{ path("admin_commerce_ajout") }}" class="waves-effect waves-light btn-small">Ajouter une doléance</a>
+	<a href="{{ path("admin_commerce_ajout") }}" class="waves-effect waves-light btn-small">Ajouter un commerce</a>
 	<table class="table striped centered responsive-table">
 		<thead>
 			<tr>
-				<th>ID</th>
 				<th>Nom</th>
 				<th>Description</th>
 				<th>Adresse</th>
@@ -20,13 +19,12 @@
 		<tbody>
 			{% for commerce in commerce %}
 				<tr>
-					<td>{{commerce.id}}</td>
 					<td>{{commerce.name}}</td>
 					<td>{{commerce.description}}</td>
 					<td>{{commerce.address}}</td>
-					<td>{{commerce.imgpath}}</td>
+					<td><img class="image-index" src="/upload/{{commerce.imgpath}}"></td>
 					<td class="text-center">
-						<a href="{{ path("admin_commerce_modifier", {id: commerce.id}) }}" class="btn blue">Modifier</a>
+						<a href="{{ path("admin_commerce_modifier", {id: commerce.id}) }}" class="btn">Modifier</a>
 					</td>
 				</tr>
 			{% endfor %}

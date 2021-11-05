@@ -33,14 +33,18 @@ class DoleancesController extends AbstractController
     {
         $doleances = new Doleances;
 
+        $form = $this->createFormBuilder(new Doleances());
         $form = $this->createForm(DoleancesType::class, $doleances);
+    
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $doleances -> setdate(new \DateTime("now"));
             $em->persist($doleances);
             $em->flush();
+            
 
             return $this->redirectToRoute('admin_doleances_home');
         }

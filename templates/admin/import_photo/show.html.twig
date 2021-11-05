@@ -1,0 +1,34 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Gestion des photos{% endblock %}
+
+{% block content %}
+    <h1>Photo n° {{ import_photo.id }}</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Identifiant de la photo</th>
+                <td>{{ import_photo.id }}</td>
+            </tr>
+            <tr>
+                <th>Date de création</th>
+                <td>{{ import_photo.Date ? import_photo.Date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Titre de la photo</th>
+                <td>{{ import_photo.Title }}</td>
+            </tr>
+            <tr>
+                <th>Photos</th>
+                <td>{{ import_photo.pathPhoto }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_photo_home') }}">Retourner à la liste</a>
+
+    <a href="{{ path('admin_photo_modifier', {'id': import_photo.id}) }}">Modifier</a>
+
+    {{ include('admin/import_photo/_delete_form.html.twig') }}
+{% endblock %}

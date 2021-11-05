@@ -1,0 +1,60 @@
+                <style> 
+						header, main, footer {
+						padding-left: 300px;
+						}
+                        
+						@media only screen and (max-width : 992px) {
+						header, main, footer {
+							padding-left: 0;
+						}
+						}
+				</style>
+				<ul id="slide-out admin-menu" class="sidenav sidenav-fixed">
+					<li>
+						<div class="user-view">
+							<h5 class="titre-administration">Administration</h5>
+						</div>
+					</li>
+					<li>
+						<div class="divider"></div>
+					</li>
+					<li>
+						<a class="subheader">Gestion des topics</a>
+					</li>
+					<li>
+						<a href="{{ path("admin_commerce_home") }}"><i class="material-icons">location_city</i>Gestion des commerces</a>
+					</li>
+					<li>
+						<a href="{{ path("admin_doleances_home") }}"><i class="material-icons">description</i>Gestion des doléances</a>
+					</li>
+					<li>
+						<a href="{{ path("admin_evenement_home") }}"><i class="material-icons">date_range</i>Gestion des événements</a>
+					</li>
+					<li>
+						<a href="{{ path("admin_report_home") }}"><i class="material-icons">cloud</i>Gestion des rapports</a>
+					</li>
+					<li>
+						<div class="divider"></div>
+					</li>
+					<li>
+						<a class="subheader">Gestion des médias</a>
+					</li>
+					<li>
+						<a href="{{ path("admin_photo_home") }}"><i class="material-icons">insert_photo</i>Gestion des photos</a>
+					</li>
+					<li>
+						<a href="#"><i class="material-icons">work</i>Gestion des gazettes</a>
+					</li>
+					<li>
+						<div class="divider"></div>
+					</li>
+					<li>
+						<a class="subheader">Gestion des utilisateurs</a>
+					</li>
+					<li>
+						<a href="{{ path("admin_register")}}"><i class="material-icons">group_add</i>Création d'un compte</a>
+					</li>
+					<li>
+						<a href="#"><i class="material-icons">group</i>Gestion des Users</a>
+					</li>
+				</ul>

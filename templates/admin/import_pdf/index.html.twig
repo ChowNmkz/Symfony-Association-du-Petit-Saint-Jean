@@ -1,0 +1,30 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Gérer les gazettes{% endblock %}
+
+{% block content %}
+	<h1 class="titre-form">Gérer les gazettes</h1>
+	<a href="{{ path("admin_gazette_ajout") }}" class="btn">Ajouter une gazette</a>
+	<div class="container">
+		<table class="table striped centered responsive-table">
+			<thead>
+				<tr>
+					<th>Titre</th>
+					<th>Gazette</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for import_pdf in import_pdf %}
+					<tr>
+						<td>{{import_pdf.title}}</td>
+						<td>{{import_pdf.path_pdf}}</td>
+						<td class="text-center">
+							<a href="{{ path("admin_gazette_modifier", {id: import_pdf.id}) }}" class="btn">Modifier</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}

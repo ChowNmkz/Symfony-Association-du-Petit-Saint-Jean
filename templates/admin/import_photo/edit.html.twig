@@ -1,0 +1,13 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Editer une photo{% endblock %}
+
+{% block content %}
+    <h1>Editer une photo</h1>
+
+    {{ include('admin/import_photo/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_photo_home') }}">Retourner à la liste</a>
+
+    {{ include('admin/import_photo/_delete_form.html.twig') }}
+{% endblock %}

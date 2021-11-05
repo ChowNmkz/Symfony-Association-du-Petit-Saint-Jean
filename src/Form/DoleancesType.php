@@ -17,7 +17,9 @@ class DoleancesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('date', DateType::class)
+            ->add('date', DateType::class, [
+                'widget' => 'single_text',
+            ])
             ->add('title', TextType::class)
             ->add('description', TextareaType::class)
             ->add('Valider', SubmitType::class);

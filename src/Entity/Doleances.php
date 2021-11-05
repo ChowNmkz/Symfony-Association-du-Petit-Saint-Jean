@@ -20,7 +20,7 @@ class Doleances
     /**
      * @ORM\Column(type="date")
      */
-    private $date;
+    private $date ;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -31,6 +31,11 @@ class Doleances
      * @ORM\Column(type="text")
      */
     private $Description;
+
+    public function __construct()
+    {
+        $this->date = new \DateTime('now');
+    }
 
     public function getId(): ?int
     {

@@ -1,7 +1,6 @@
-* {
-  font-family: open sans;
-}
+/* CSS qui gére le style général du site  */
 
+/*
 .bodymain {
   background-color: #ffffec;
 }
@@ -17,37 +16,100 @@
   font-size: 14px;
   color: black !important;
 }
+*/
 
-nav ul a {
-  color: #010101;
+* {
+  font-family: open sans;
+  /*background-color: #ffffec;*/
 }
 
 body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
   background-color: #ffffec;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
   flex: 1 0 auto;
 }
 
-.teal {
-  background-color: #e3d9ad !important;
+nav ul a {
+  color: #010101;
 }
 
-#logo_title {
-  background-color: #f2e7b7;
-  height: 250px;
-  width: 100%;
+/* Balise qui sont utiliser sur la SideNav du menu Administration */
+.sidenav {
+  background-color: #353935;
+  color: #ffffec;
 }
 
-#LogoTitle {
-  margin-top: 20px;
+.sidenav li > a {
+  color: #ffffec;
 }
 
-#title-main {
-  color: #c8aa99;
-  font-size: 35px;
+.sidenav li > a > i,
+.sidenav li > a > [class^="mdi-"],
+.sidenav li > a li > a > [class*="mdi-"],
+.sidenav li > a > i.material-icons {
+  color: #63bce8;
+}
+
+.sidenav .subheader {
+  color: #ffffec;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.sidenav .user-view {
+  position: relative;
+  padding: 10px 0 2px 0;
+}
+
+.user-view {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  text-align: center;
+}
+
+h5.titre-administration {
+  display: flex;
+  height: fit-content;
+  margin: 0;
+}
+
+.tableau-admin > th,
+.tableau-admin > td {
+  text-align: center;
+}
+
+/* CSS lié au formulaires de l'interface d'administration */ 
+
+.bouton-valider{
+  background-color: #353935;
+  display:block;
+  margin:auto;
+  width: fit-content;
+}
+
+.btn, .btn-large, .btn-small{
+  background-color: #353935;
+}
+
+.input-field>label{
+  color:#353935;
+}
+
+.titre-form{
+ text-align: center;
+}
+
+/* CSS lié aux affichages d'index de l'interface d'administration */
+
+.image-index{
+  height: 150px;
+  width: 150px;
+  border-radius: 5px;
 }

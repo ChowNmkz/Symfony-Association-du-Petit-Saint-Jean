@@ -1,10 +1,33 @@
 {% extends 'admin.html.twig' %}
 
-{% block title %}
-    Modifier un évènement
-{% endblock %}
+{% block title %}Modifier un évènement{% endblock %}
 
 {% block body %}
-    <h1>Modifier un évènement</h1>
-        {{ form(form) }}
+    <h1 class="titre-form">Modifier un évènement</h1>
+        <div class="row">
+			<form class="col s12" method="POST" enctype="multipart/form-data">
+				{{ form_start(form) }}
+					<!--  Corriger le DatePicker -->
+					<div class="row input-field col s12">
+						{{ form_errors(form.Date) }}
+						{{ form_label(form.Date, 'Date de l\'évèvenement') }}
+						{{ form_widget(form.Date, { 'attr': {'class': 'datepicker'} }) }}
+					</div>
+					
+					<div class="row input-field col s12 ">
+						{{ form_errors(form.Name) }}
+						{{ form_label(form.Name, 'Intitulé de l\'évènement') }}
+						{{ form_widget(form.Name, { 'attr': {'class': 'validate'} }) }}
+					</div>
+					
+					<div class="row input-field col s12">
+						{{ form_errors(form.Description) }}
+						{{ form_label(form.Description, 'Description de l\'évènement') }}
+						{{ form_widget(form.Description, { 'attr': {'class': 'materialize-textarea'} }) }}
+					</div>
+                    
+					{{ form_widget(form.Valider, { 'attr' : {'class': 'btn-large waves-effect waves-light bouton-valider'} }) }}
+				{{ form_end(form) }}
+			</form>
+		</div>
 {% endblock %}

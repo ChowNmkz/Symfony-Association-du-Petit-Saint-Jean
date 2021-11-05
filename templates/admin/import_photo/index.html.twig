@@ -1,0 +1,35 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Gérer les photos{% endblock %}
+
+{% block content %}
+    <h1>Gérer les photos</h1>
+
+    <table class="table">
+        <thead class="tableau-admin">
+            <tr>
+                <th>Photo</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for import_photo in import_photos %}
+            <tr class="tableau-admin">
+                <td><img src="/upload/{{ import_photo.pathPhoto }}"></td>
+                <td>{{ import_photo.Date ? import_photo.Date|date('d/m/Y H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('admin_photo_voir', {'id': import_photo.id}) }}"><i class="material-icons">visibility</i></a>
+                    <a href="{{ path('admin_photo_modifier', {'id': import_photo.id}) }}"><i class="material-icons">mode_edit</i></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Aucune entrée trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_photo_ajout') }}">Créer une nouvelle entrée</a>
+{% endblock %}

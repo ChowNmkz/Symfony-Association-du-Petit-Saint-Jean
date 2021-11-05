@@ -37,7 +37,11 @@ class ReportController extends AbstractController
 
         $form->handleRequest($request);
 
+
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $date = $form->get('Date')->getData();
+            dd($date);
             $em = $this->getDoctrine()->getManager();
             $em->persist($report);
             $em->flush();

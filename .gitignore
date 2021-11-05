@@ -7,6 +7,8 @@
 /public/bundles/
 /var/
 /vendor/
+###> ajout du fichier upload pour éviter de commit des datas inutiles ###
+/public/upload/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###

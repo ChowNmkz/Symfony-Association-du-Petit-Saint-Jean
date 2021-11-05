@@ -2,22 +2,27 @@
 
 namespace App\Form;
 
-use App\Entity\Evenement;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
+use App\Entity\ImportPdf;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class EvenementType extends AbstractType
+class GazetteType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Date', TextType::class)
-            ->add('Name')
-            ->add('Description')
+            ->add('Date', DateType::class,  [
+                'widget' => 'single_text',
+            ])
+            ->add('title')
+            ->add('path_pdf', FileType::class,[
+                'mapped' => false,
+                'required' => false
+            ])
             ->add('Valider', SubmitType::class)
         ;
     }
@@ -25,7 +30,7 @@ class EvenementType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => Evenement::class,
+            'data_class' => ImportPdf::class,
         ]);
     }
 }

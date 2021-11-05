@@ -37,6 +37,17 @@ class CommerceController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            // On récupére l'image
+            $img = $form->get('img_path')->getData();
+            $name = $form->get('Name')->getData();
+            // Gestion du nom de l'image
+            $name = strtr(utf8_decode($name), utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
+            $name = strtolower($name);
+            $name = str_replace(" ", "_", $name);
+            $title_img = $name . '_' . uniqid() . '.' . $img->guessExtension();
+            $destination = $this->getParameter('images_directory');
+            $img->move($destination, $title_img);
+            $commerce->setImgPath($title_img);
             $em = $this->getDoctrine()->getManager();
             $em->persist($commerce);
             $em->flush();
