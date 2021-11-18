@@ -1,0 +1,33 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Gérer les rapports d'AG{% endblock %}
+
+{% block content %}
+	<h1 class="titre-form">Gérer les rapports d'AG</h1>
+    <a href="{{ path("admin_report_ajout") }}" class="btn">Ajouter un rapport d'assemblée générale</a>
+	<table class="table striped centered responsive-table">
+		<thead>
+			<tr class="tableau-admin">
+                <th>Date</th>
+				<th>Nom</th>
+				<th>Contenu du rapport</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+        {% for report in report %}            
+			<tr class="tableau-admin">
+				<td>{{report.date|date("d/m/Y")}}</td>
+				<td>{{report.name}}</td>
+                <td>{{report.description}}</td>
+				<td class="text-center">
+                    <a href="{{ path("admin_report_modifier", {id: report.id}) }}" class="btn bouton-index">Modifier</a>
+					<form action="{{ path('admin_report_supprimer', {'id': report.id}) }}" onsubmit="return confirm('Êtes-vous sur de vouloir supprimer ce rapport d'AG ?');">
+						<button class="btn bouton-index">Supprimer</button>
+					</form>
+                </td>
+			</tr>
+        {% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

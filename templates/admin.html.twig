@@ -4,11 +4,9 @@
 		<meta charset="UTF-8"/>
 		<title>
 			{% block title %}
-				Welcome!
+				Interface d'administration
 			{% endblock %}
 		</title>
-		{# Run `composer require symfony/webpack-encore-bundle`
-		           and uncomment the following Encore helpers to start using Symfony UX #}
 		{% block stylesheets %}
 			{{ encore_entry_link_tags('materialize') }}
 			{{ encore_entry_link_tags('app') }}
@@ -24,20 +22,24 @@
 	</head>
 
 	<main>
-		{% block navbar %}
-			{% include './block/navbar.html.twig' %}
-		{% endblock %}
+		<body>
+			{# On appelle notre sidenav #}
+			{% block sidenav %}
+				{% include './block/sidenav.html.twig' %}
+			{% endblock %}
 		{% block body %}
-			<body>
-				{% block content %}{% endblock %}
-			</body>
-		{% endblock %}
+			{% block homeadmin %}	
+			{# On encapsule notre 'content' dans un container #}
+			<div class="container">
+				{% block content %}
+				{% endblock %}
+			</div>
+			{% endblock %}
+		{% endblock %}		
+			{% block javascripts %}
+				{{ encore_entry_script_tags('materialize') }}
+				{{ encore_entry_script_tags('app') }}
+			{% endblock %}
+		</body>
 	</main>
-	{% block footer %}
-		{% include './block/footer.html.twig' %}
-	{% endblock %}
-		{% block javascripts %}
-			{{ encore_entry_script_tags('materialize') }}
-			{{ encore_entry_script_tags('app') }}
-		{% endblock %}
 </html>

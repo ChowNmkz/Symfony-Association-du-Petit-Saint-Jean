@@ -1,0 +1,51 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}
+	Ajoutez un commerce
+{% endblock %}
+
+{% block body %}
+
+	<h1 class="titre-form">Ajouter un commerce</h1>
+		<div class="row">
+			<form class="col s12" method="POST" enctype="multipart/form-data">
+				{{ form_start(form) }}
+					
+					<div class="row input-field col s12">
+						{{ form_errors(form.Name) }}
+						{{ form_label(form.Name, 'Nom du commerce') }}
+						{{ form_widget(form.Name, { 'attr': {'class': 'validate'} }) }}
+					</div>
+					
+					<div class="row input-field col s12 ">
+						{{ form_errors(form.description) }}
+						{{ form_label(form.description, 'Description du commerce') }}
+						{{ form_widget(form.description, { 'attr': {'class': 'materialize-textarea'} }) }}
+					</div>
+					
+					<div class="row input-field col s12">
+						{{ form_errors(form.Address) }}
+						{{ form_label(form.Address, 'Adresse du commerce') }}
+						{{ form_widget(form.Address, { 'attr': {'class': 'validate'} }) }}
+					</div>
+					
+					<div class="row input-field col s12">
+						<div class="file-field input-field">
+							<div class="btn">
+								<i class="material-icons left">file_download</i>
+								Telecharger une photo
+								{{ form_widget(form.img_path) }}
+							</div>
+							<div class="file-path-wrapper">
+								<input class="file-path validate" type="text">
+							</div>
+						</div>
+					</div>
+					
+				{{ form_widget(form.Valider, { 'attr' : {'class': 'btn-large waves-effect waves-light bouton-valider'} }) }}
+				{{ form_end(form) }}
+			</form>
+		</div>
+{% endblock %}
+
+

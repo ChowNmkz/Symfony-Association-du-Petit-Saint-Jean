@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ImportPhotoRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ImportPhotoRepository::class)
@@ -27,15 +28,26 @@ class ImportPhoto
      */
     private $Title;
 
+    /** 
+     * @Assert\All({
+     *  @Assert\NotBlank,
+     *  @Assert\Length(min=5)
+     * })
+    */
     /**
      * @ORM\Column(type="string", length=255)
      */
     private $path_photo;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Evenement::class, inversedBy="import_photo")
+     * @ORM\ManyToOne(targetEntity=Evenement::class, inversedBy="import_photo", cascade={"persist"})
      */
     private $evenement;
+
+    public function __construct()
+    {
+        $this->Date = new \DateTime('now');
+    }
 
     public function getId(): ?int
     {

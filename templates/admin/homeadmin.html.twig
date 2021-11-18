@@ -1,0 +1,138 @@
+{% extends 'admin.html.twig' %}
+
+{% block homeadmin %}
+
+<div class="card-row">
+
+   
+    <div class="card-pers">
+        <a class="" href="{{ path("admin_commerce_home") }}">
+            <div class="card-header">
+                <span>Gestion des commerces</span>
+            </div>
+            <div class="card-container">
+                <div class="card-desc">
+                    <span>Fenêtre de gestions des commerces du quartier à afficher sur le site Web.</span>
+                </div>
+                <div class="card-act">
+                    <p>
+                        Le dernier commerce enregistré est : {{commerce.Name}}.
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+        
+
+    
+    <div class="card-pers">
+        <a class="" href="{{ path("admin_doleances_home") }}">
+            <div class="card-header">
+                <span>Gestion des doléances</span>
+            </div>
+            <div class="card-container">
+                <div class="card-desc">
+                    <span>Fenêtre de gestions des doléances du quartier qui ont été récupéré depuis depuis le formulaire : Déposer une doléance du site web.</span>
+                </div>
+                <div class="card-act">
+                    <p>
+                        Le derniére enregistré est : {{doleance.Title}}<br> 
+                        Il a été rajouté le {{doleance.date|date("d/m/Y")}}.
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+
+    
+    <div class="card-pers">
+        <a class="" href="{{ path("admin_evenement_home") }}">
+            <div class="card-header">
+                <span>Gestion des événements</span>
+            </div>
+            <div class="card-container">
+                <div class="card-desc">
+                    <span>Fenêtre de gestion des événements qui auront lieu prochainement</span>
+                </div>
+                <div class="card-act">
+                    <p>
+                        Le dernier événements enregistré est : {{evenement.name}}.<br> 
+                        Il a été rajouté le {{evenement.Date|date("d/m/Y")}}.
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+
+    
+    <div class="card-pers">
+        <a class="" href="{{ path("admin_report_home") }}">
+            <div class="card-header">
+                <span>Gestion des rapports d'assemblée générale</span>
+            </div>
+            <div class="card-container">
+                <div class="card-desc">
+                    <span>Fenêtre de gestion des rapports d'assemblée générales qui ont eu lieu. Tout les rapports sont ici.</span>
+                </div>
+                <div class="card-act">
+                    <p>
+                        Le dernier rapport enregistré a été enregistré le {{rapport.Date|date("d/m/Y")}}.
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+
+
+</div>
+
+
+    
+<div class="card-row">
+    
+    
+    <div class="card-pers">
+        <a class="" href="{{ path("admin_gazette_home") }}">
+            <div class="card-header">
+                <span>Gestion des gazettes</span>
+            </div>
+            <div class="card-container">
+                <div class="card-desc">
+                    <span>Fenêtre permettant la gestion des gazettes du comité de quartier.</span>
+                </div>
+                <div class="card-act">
+                    <p>
+                        La derniére gazette enregistré est : {{ gazette.title }}.<br> 
+                        <embed class="center-align" src="/upload/{{gazette.pathpdf}}" width=500 height=150 type='application/pdf'/><br>
+                        Elle a été rajoutée le {{gazette.Date|date("d/m/Y")}}.
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+    <div class="card-pers">
+        <a class="" href="{{ path("admin_photo_home") }}">
+            <div class="card-header">
+                <span>Gestion des photos</span>
+            </div>
+            <div class="card-container">
+                <div class="card-desc">
+                    <span>Fenêtre permettant la gestion des photos.</span>
+                </div>
+                <div class="card-act">
+                    <p>
+                        La derniére image enregistré est : <br>
+                        <img class="image-admin" src="/upload/{{ photo.pathPhoto }}"><br> 
+                        Elle a été rajoutée le {{photo.Date|date("d/m/Y")}}.
+                    </p>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+
+</div>
+{% endblock %}

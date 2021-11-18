@@ -1,0 +1,34 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}
+    Modifier un rapport
+{% endblock %}
+
+{% block body %}
+	<h1 class="titre-form">Modifier un rapport</h1>
+	<div class="row">
+		<form class="col s12" method="POST" enctype="multipart/form-data">
+			{{ form_start(form) }}
+				<div class="row input-field col s12">
+					{{ form_errors(form.Date) }}
+					{{ form_label(form.Date, 'Date de l\'assemblée générale') }}
+					{{ form_widget(form.Date, { 'attr': {'class': 'datepicker'} }) }}
+				</div>
+				
+				<div class="row input-field col s12 ">
+					{{ form_errors(form.Name) }}
+					{{ form_label(form.Name, 'Intitulé de l\'assemblée générale') }}
+					{{ form_widget(form.Name, { 'attr': {'class': 'validate'} }) }}
+				</div>
+				
+				<div class="row input-field col s12">
+					{{ form_errors(form.Description) }}
+					{{ form_label(form.Description, 'Rapport de l\'assemblée générale') }}
+					{{ form_widget(form.Description, { 'attr': {'class': 'materialize-textarea'} }) }}
+				</div>
+				
+			{{ form_widget(form.Valider, { 'attr' : {'class': 'btn-large waves-effect waves-light bouton-valider'} }) }}
+		{{ form_end(form) }}
+	</form>
+</div>
+{% endblock %}

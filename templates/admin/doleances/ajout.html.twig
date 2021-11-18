@@ -1,0 +1,36 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Ajoutez une doléance{% endblock %}
+
+{% block body %}
+
+	<h1 class="titre-form">Ajouter une doléance</h1>
+		<div class="row">
+			<form class="col s12" method="POST" enctype="multipart/form-data">
+				{{ form_start(form) }}				
+				
+					<div class="row input-field col s12 ">
+						{{ form_label(form.date, 'Date de dépot de la doléance') }}
+						{{ form_widget(form.date, { 'attr': {'class': 'validate'} }) }}
+						{{ form_errors(form.date, { 'attr': {'class': 'helper-text'} }) }}
+					</div>
+					
+					<div class="row input-field col s12 ">
+						{{ form_label(form.title, 'Intitulé de la doléance') }}
+						{{ form_widget(form.title, { 'attr': {'class': 'validate'} }) }}
+						{{ form_errors(form.title, { 'attr': {'class': 'helper-text'} }) }}
+					</div>
+					
+					<div class="row input-field col s12">
+						{{ form_errors(form.description) }}
+						{{ form_label(form.description, 'Description de la doléance') }}
+						{{ form_widget(form.description, { 'attr': {'class': 'materialize-textarea'} } ) }}
+					</div>
+					
+					{{ form_widget(form.Valider, { 'attr' : {'class': 'btn-large waves-effect waves-light bouton-valider'} }) }}
+				
+				{{ form_end(form) }}
+			</form>
+		</div>
+	
+{% endblock %}

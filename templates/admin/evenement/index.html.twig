@@ -1,0 +1,33 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}Gérer les évènements{% endblock %}
+
+{% block content %}
+	<h1 class="titre-form">Gérer les évènements</h1>
+    <a href="{{ path("admin_evenement_ajout") }}" class="btn">Ajouter un évènement</a>
+	<table class="table striped centered responsive-table">
+		<thead>
+			<tr>
+                <th>Date</th>
+				<th>Nom</th>
+				<th>Description</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+        {% for evenement in evenement %}            
+			<tr>
+				<td>{{evenement.date|date("d/m/Y")}}</td>
+				<td>{{evenement.name}}</td>
+                <td>{{evenement.description}}</td>
+				<td class="text-center">
+                    <a href="{{ path("admin_evenement_modifier", {id: evenement.id}) }}" class="btn bouton-index">Modifier</a>
+					<form action="{{ path('admin_evenement_supprimer', {'id': evenement.id}) }}" onsubmit="return confirm('Êtes-vous sur de vouloir supprimer cet événement ?');">
+    					<button class="btn bouton-index">Supprimer</button>
+					</form>
+                </td>
+			</tr>
+        {% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

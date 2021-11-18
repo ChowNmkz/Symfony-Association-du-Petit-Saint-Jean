@@ -32,6 +32,11 @@ class ImportPdf
      */
     private $path_pdf;
 
+    public function __construct()
+    {
+        $this->Date = new \DateTime('now');
+    }
+
     public function getId(): ?int
     {
         return $this->id;
