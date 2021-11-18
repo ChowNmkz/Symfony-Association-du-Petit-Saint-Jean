@@ -5,7 +5,6 @@
 {% block content %}
 	<h1>Gérer les doléances</h1>
 	<a href="{{ path("admin_doleances_ajout") }}" class="btn">Ajouter une doléance</a>
-	<div class="container">
 		<table class="table striped centered responsive-table">
 			<thead>
 				<tr>
@@ -22,11 +21,13 @@
 						<td>{{doleances.title}}</td>
 						<td>{{doleances.description}}</td>
 						<td class="text-center">
-							<a href="{{ path("admin_doleances_modifier", {id: doleances.id}) }}" class="btn">Modifier</a>
+							<a href="{{ path("admin_doleances_modifier", {id: doleances.id}) }}" class="btn bouton-index">Modifier</a>
+							<form action="{{ path('admin_doleances_supprimer', {'id': doleances.id}) }}" onsubmit="return confirm('Êtes-vous sur de vouloir supprimer cette doléances ?');">
+    							<button class="btn bouton-index">Supprimer</button>
+							</form>
 						</td>
 					</tr>
 				{% endfor %}
 			</tbody>
 		</table>
-	</div>
 {% endblock %}

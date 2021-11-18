@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\CommerceQuartier as Commerce;
 use App\Repository\CommerceQuartierRepository as CommerceRepository;
 use App\Form\CommerceType;
+use Symfony\Component\HttpFoundation\Response;
 
 class CommerceController extends AbstractController
 
@@ -80,5 +81,17 @@ class CommerceController extends AbstractController
         return $this->render('admin/commerce/ajout.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/supprimer/{id}", name="supprimer")
+     */
+    public function delete(Request $request, Commerce $commerce): Response
+    {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($commerce);
+            $em->flush();
+        
+        return $this->redirectToRoute('admin_commerce_home', [], Response::HTTP_SEE_OTHER);
     }
 }

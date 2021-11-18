@@ -1,0 +1,51 @@
+{% extends 'admin.html.twig' %}
+
+{% block title %}
+	Ajoutez une/des photo(s)
+{% endblock %}
+
+{% block body %}
+
+	<h1 class="titre-form">Ajoutez une/des photo(s)</h1>
+
+		<div class="row">
+			<form class="col s12" method="POST" enctype="multipart/form-data">
+				{{ form_start(form) }}
+					
+                    <div class="row input-field col s12">
+                        {{ form_errors(form.Date) }}
+                        {{ form_label(form.Date, 'Date') }}
+                        {{ form_widget(form.Date) }}
+                    </div>
+
+					<div class="row input-field col s12">
+						{{ form_errors(form.Title) }}
+						{{ form_label(form.Title, 'Titre de la photo') }}
+						{{ form_widget(form.Title) }}
+					</div>
+					
+                    <div class="row input-field col s12">
+                        {{ form_errors(form.evenement) }}
+						{{ form_widget(form.evenement) }}
+						{{ form_label(form.evenement, 'Evénement rattaché à la photo') }}
+                    </div>
+
+					<div class="row input-field col s12">
+						{{ form_errors(form.path_photo) }}
+						<div class="file-field input-field">
+							<div class="btn">
+								<i class="material-icons left">file_download</i>
+								Telecharger une/des photo(s)
+								{{ form_widget(form.path_photo) }}
+							</div>
+							<div class="file-path-wrapper">
+								<input class="file-path validate" type="text">
+							</div>
+						</div>
+					</div>
+					{{ form_widget(form.Valider, { 'attr' : {'class': 'btn-large waves-effect waves-light bouton-valider'} }) }}
+				{{ form_end(form) }}
+			</form>
+		</div>
+
+{% endblock %}

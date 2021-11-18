@@ -34,7 +34,7 @@ class ImportPdf
 
     public function __construct()
     {
-        $this->date = new \DateTime('now');
+        $this->Date = new \DateTime('now');
     }
 
     public function getId(): ?int

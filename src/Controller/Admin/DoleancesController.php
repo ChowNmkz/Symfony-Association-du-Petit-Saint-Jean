@@ -7,6 +7,7 @@ use App\Form\DoleancesType;
 use App\Repository\DoleancesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
@@ -40,8 +41,9 @@ class DoleancesController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
             $doleances -> setdate(new \DateTime("now"));
+            
+            $em = $this->getDoctrine()->getManager();
             $em->persist($doleances);
             $em->flush();
             
@@ -74,5 +76,17 @@ class DoleancesController extends AbstractController
         return $this->render('admin/doleances/ajout.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+        /**
+     * @Route("/supprimer/{id}", name="supprimer")
+     */
+    public function delete(Request $request, Doleances $doleances): Response
+    {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($doleances);
+            $em->flush();
+        
+        return $this->redirectToRoute('admin_doleances_home', [], Response::HTTP_SEE_OTHER);
     }
 }

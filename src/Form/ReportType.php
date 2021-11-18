@@ -15,7 +15,11 @@ class ReportType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Date', TextType::class)
+            ->add('Date', DateType::class, [
+                'widget' => 'single_text',
+                'html5' => false,
+                'attr' => ['class' => 'datepicker']
+            ])
             ->add('Name')
             ->add('Description')
             ->add('Valider', SubmitType::class)

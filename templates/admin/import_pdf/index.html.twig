@@ -18,9 +18,12 @@
 				{% for import_pdf in import_pdf %}
 					<tr>
 						<td>{{import_pdf.title}}</td>
-						<td>{{import_pdf.path_pdf}}</td>
+						<td><embed src="/upload/{{import_pdf.pathpdf}}" width=250 height=150 type='application/pdf'/></td>
 						<td class="text-center">
-							<a href="{{ path("admin_gazette_modifier", {id: import_pdf.id}) }}" class="btn">Modifier</a>
+							<a href="{{ path("admin_gazette_modifier", {id: import_pdf.id}) }}" class="btn bouton-index">Modifier</a>
+							<form action="{{ path('admin_gazette_supprimer', {'id': import_pdf.id}) }}" onsubmit="return confirm('Êtes-vous sur de vouloir supprimer cette edition de la gazette ?');">
+    							<button class="btn bouton-index">Supprimer</button>
+							</form>
 						</td>
 					</tr>
 				{% endfor %}

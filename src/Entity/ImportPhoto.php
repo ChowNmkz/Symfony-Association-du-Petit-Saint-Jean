@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ImportPhotoRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ImportPhotoRepository::class)
@@ -27,6 +28,12 @@ class ImportPhoto
      */
     private $Title;
 
+    /** 
+     * @Assert\All({
+     *  @Assert\NotBlank,
+     *  @Assert\Length(min=5)
+     * })
+    */
     /**
      * @ORM\Column(type="string", length=255)
      */

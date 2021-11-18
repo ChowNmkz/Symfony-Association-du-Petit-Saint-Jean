@@ -7,6 +7,7 @@ use App\Form\ReportType;
 use App\Repository\ReportRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
@@ -40,8 +41,6 @@ class ReportController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $date = $form->get('Date')->getData();
-            dd($date);
             $em = $this->getDoctrine()->getManager();
             $em->persist($report);
             $em->flush();
@@ -74,5 +73,17 @@ class ReportController extends AbstractController
         return $this->render('admin/report/ajout.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/supprimer/{id}", name="supprimer")
+     */
+    public function delete(Request $request, Report $report): Response
+    {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($report);
+            $em->flush();
+        
+        return $this->redirectToRoute('admin_report_home', [], Response::HTTP_SEE_OTHER);
     }
 }

@@ -39,7 +39,7 @@ class ImportPhotoController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             // On récupére les images transmises
-            $photos = $form->get('Photo')->getData();
+            $photos = $form->get('path_photo')->getData();
             // On récupére le titre du lot d'image
             $title = $form->get('Title')->getData();
             // On récupére l'évènement associé aux photos
@@ -77,17 +77,8 @@ class ImportPhotoController extends AbstractController
             return $this->redirectToRoute('admin_photo_home', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('admin/import_photo/new.html.twig', [
-            'import_photo' => $importPhoto,
-            'form' => $form,
-        ]);
-    }
-
-    #[Route('/voir/{id}', name: 'voir', methods: ['GET'])]
-    public function show(ImportPhoto $importPhoto): Response
-    {
-        return $this->render('admin/import_photo/show.html.twig', [
-            'import_photo' => $importPhoto,
+        return $this->render('admin/import_photo/ajout.html.twig', [
+            'form' => $form->createView()
         ]);
     }
 
@@ -103,7 +94,7 @@ class ImportPhotoController extends AbstractController
             return $this->redirectToRoute('admin_photo_home', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('admin/import_photo/edit.html.twig', [
+        return $this->renderForm('admin/import_photo/ajout.html.twig', [
             'import_photo' => $importPhoto,
             'form' => $form,
         ]);

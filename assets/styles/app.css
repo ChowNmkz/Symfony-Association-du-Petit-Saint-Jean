@@ -1,23 +1,5 @@
 /* CSS qui gére le style général du site  */
 
-/*
-.bodymain {
-  background-color: #ffffec;
-}
-
-.nav-wrapper {
-  background-color: #cdc963 !important;
-  font-size: 14px;
-  color: black;
-}
-
-.page-footer {
-  background-color: #555555 !important;
-  font-size: 14px;
-  color: black !important;
-}
-*/
-
 * {
   font-family: open sans;
   /*background-color: #ffffec;*/
@@ -80,22 +62,30 @@ h5.titre-administration {
   margin: 0;
 }
 
+.adminhome {
+  color: #ffffec;
+}
+
 .tableau-admin > th,
 .tableau-admin > td {
   text-align: center;
 }
 
 /* CSS lié au formulaires de l'interface d'administration */ 
+.bouton-index{
+  margin: 3px;
+}
 
 .bouton-valider{
   background-color: #353935;
-  display:block;
-  margin:auto;
+  display: block;
+  margin: auto;
   width: fit-content;
 }
 
 .btn, .btn-large, .btn-small{
   background-color: #353935;
+
 }
 
 .input-field>label{
@@ -109,7 +99,83 @@ h5.titre-administration {
 /* CSS lié aux affichages d'index de l'interface d'administration */
 
 .image-index{
+  border-radius: 5px;
   height: 150px;
   width: 150px;
-  border-radius: 5px;
+  object-fit: cover;
 }
+
+/* CSS lié aux cards de l'interface d'administration */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+
+    .card-row{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: space-evenly;
+        margin-top: calc(100% / 20);
+        margin-bottom: calc(100% / 20);
+    }
+
+    .card-pers {
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        font-family: 'Roboto';
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.404);
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        width: fit-content;
+        flex: 1 0 calc( 25% - 24px);
+        margin: 5px 5px 10px 5px;
+      }
+
+    .card-pers:hover {
+        cursor: pointer;
+    }
+    .card-pers:hover .card-header {
+        background-color: #141313;
+    }
+
+    .card-header {
+        background: #353935;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        color: #ffffec;
+        font-size: 18px;
+        font-weight: bold;
+        height: fit-content;
+        padding: 15px;
+        text-align: center;
+        transition: 0.3s;
+    }
+
+    .card-container {
+        background-color: #ffffea;
+        font-weight: bold;
+        padding: 5px 15px;
+    }
+
+    .card-desc {
+        margin: 15px 5px;
+        text-align: center;
+        color:#353935;
+      }
+
+    .card-act {
+        display: list-item;
+        margin: 0 40px 20px 40px;
+        color:#353935;
+    }
+
+    .image-admin{
+      border-radius: 5px;
+      display: block;
+      height: 150px;
+      width: 150px;
+      object-fit: cover;
+      margin-left: auto;
+      margin-right: auto;
+    }

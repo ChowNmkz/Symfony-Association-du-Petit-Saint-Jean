@@ -11,25 +11,30 @@
 		<div class="row">
 			<form class="col s12" method="POST" enctype="multipart/form-data">
 				{{ form_start(form) }}
+
+					<div class="row input-field col s12 ">
+						{{ form_label(form.Date, 'Date de dépot de la gazette') }}
+						{{ form_widget(form.Date) }}
+					</div>
 					
 					<div class="row input-field col s12">
-						{{ form_errors(form.title) }}
 						{{ form_label(form.title, 'Titre de la gazette') }}
 						{{ form_widget(form.title, { 'attr': {'class': 'validate'} }) }}
 					</div>
 					
 					<div class="row input-field col s12">
-						{{ form_label(form.path_pdf) }}
+						{{ form_errors(form.path_pdf) }}
 						<div class="file-field input-field">
 							<div class="btn">
 								<i class="material-icons left">file_download</i>
-								Telecharger un pdf
+								Telecharger la gazette
 								{{ form_widget(form.path_pdf) }}
 							</div>
 							<div class="file-path-wrapper">
 								<input class="file-path validate" type="text">
 							</div>
 						</div>
+
 					</div>
 					{{ form_widget(form.Valider, { 'attr' : {'class': 'btn-large waves-effect waves-light bouton-valider'} }) }}
 				{{ form_end(form) }}

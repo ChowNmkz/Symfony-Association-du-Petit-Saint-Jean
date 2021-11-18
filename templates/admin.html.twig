@@ -18,10 +18,7 @@
 			</noscript>
 		{% endblock %}
 
-		{% block javascripts %}
-			{{ encore_entry_script_tags('materialize') }}
-			{{ encore_entry_script_tags('app') }}
-		{% endblock %}
+
 	</head>
 
 	<main>
@@ -31,13 +28,18 @@
 				{% include './block/sidenav.html.twig' %}
 			{% endblock %}
 		{% block body %}
+			{% block homeadmin %}	
 			{# On encapsule notre 'content' dans un container #}
 			<div class="container">
-			{% block content %}
-				
-			{% endblock %}
+				{% block content %}
+				{% endblock %}
 			</div>
-		{% endblock %}
+			{% endblock %}
+		{% endblock %}		
+			{% block javascripts %}
+				{{ encore_entry_script_tags('materialize') }}
+				{{ encore_entry_script_tags('app') }}
+			{% endblock %}
 		</body>
 	</main>
 </html>

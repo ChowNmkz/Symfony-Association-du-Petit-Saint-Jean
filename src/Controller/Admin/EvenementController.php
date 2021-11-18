@@ -7,6 +7,7 @@ use App\Form\EvenementType;
 use App\Repository\EvenementRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
@@ -34,10 +35,11 @@ class EvenementController extends AbstractController
         $evenement = new Evenement;
 
         $form = $this->createForm(EvenementType::class, $evenement);
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            //$date = $form->get('Date')->getData();
+            //dd($date);
             $em = $this->getDoctrine()->getManager();
             $em->persist($evenement);
             $em->flush();
@@ -70,5 +72,17 @@ class EvenementController extends AbstractController
         return $this->render('admin/evenement/ajout.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/supprimer/{id}", name="supprimer")
+     */
+    public function delete(Request $request, Evenement $evenement): Response
+    {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($evenement);
+            $em->flush();
+        
+        return $this->redirectToRoute('admin_evenement_home', [], Response::HTTP_SEE_OTHER);
     }
 }

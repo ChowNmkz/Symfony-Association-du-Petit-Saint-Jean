@@ -15,7 +15,12 @@ class EvenementType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Date', TextType::class)
+            // Formatage de la date 
+            ->add('Date', DateType::class, [
+                'widget' => 'single_text',
+                'html5' => false,
+                'attr' => ['class' => 'datepicker']
+            ])
             ->add('Name')
             ->add('Description')
             ->add('Valider', SubmitType::class)

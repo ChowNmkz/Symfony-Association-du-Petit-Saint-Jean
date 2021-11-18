@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class GazetteType extends AbstractType
 {
@@ -16,12 +17,21 @@ class GazetteType extends AbstractType
     {
         $builder
             ->add('Date', DateType::class,  [
-                'widget' => 'single_text',
+                'widget' => 'single_text'
             ])
             ->add('title')
             ->add('path_pdf', FileType::class,[
                 'mapped' => false,
-                'required' => false
+                'required' => true,
+                'constraints' => [
+                    new File([
+                        'mimeTypes' => [
+                            'application/pdf',
+                        ],
+                        'mimeTypesMessage' => 'Veuillez choisir un fichier dans le format PDF.',
+                    ])
+                ],
+
             ])
             ->add('Valider', SubmitType::class)
         ;

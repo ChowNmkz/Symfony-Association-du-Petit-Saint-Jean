@@ -21,7 +21,10 @@
 				<td>{{evenement.name}}</td>
                 <td>{{evenement.description}}</td>
 				<td class="text-center">
-                    <a href="{{ path("admin_evenement_modifier", {id: evenement.id}) }}" class="btn">Modifier</a>
+                    <a href="{{ path("admin_evenement_modifier", {id: evenement.id}) }}" class="btn bouton-index">Modifier</a>
+					<form action="{{ path('admin_evenement_supprimer', {'id': evenement.id}) }}" onsubmit="return confirm('Êtes-vous sur de vouloir supprimer cet événement ?');">
+    					<button class="btn bouton-index">Supprimer</button>
+					</form>
                 </td>
 			</tr>
         {% endfor %}

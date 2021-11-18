@@ -7,11 +7,10 @@
         <div class="row">
 			<form class="col s12" method="POST" enctype="multipart/form-data">
 				{{ form_start(form) }}
-					<!--  Corriger le DatePicker -->
 					<div class="row input-field col s12">
 						{{ form_errors(form.Date) }}
 						{{ form_label(form.Date, 'Date de l\'évèvenement') }}
-						{{ form_widget(form.Date, { 'attr': {'class': 'datepicker'} }) }}
+						{{ form_widget(form.Date) }}
 					</div>
 					
 					<div class="row input-field col s12 ">

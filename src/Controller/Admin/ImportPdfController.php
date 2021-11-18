@@ -6,7 +6,9 @@ use App\Entity\ImportPdf;
 use App\Form\GazetteType;
 use App\Repository\ImportPdfRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 
@@ -29,19 +31,20 @@ class ImportPdfController extends AbstractController
     /**
      * @Route("/ajout", name="ajout")
      */
-    public function ajoutPdf(Request $request)
+    public function ajoutPdf(Request $request): Response
     {
         $pdf = new ImportPdf;
 
-        $form = $this->createFormBuilder(new ImportPdf());
+        //$form = $this->createFormBuilder(new ImportPdf());
         $form = $this->createForm(GazetteType::class, $pdf);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $pdf -> setDate(new \DateTime("now"));
+            $pdf = new ImportPdf;
             // On récupére l'image
             $img_pdf = $form->get('path_pdf')->getData();
+            // On récupére le titre de l'image
             $name = $form->get('title')->getData();
             // Gestion du nom de l'image
             $name = strtr(utf8_decode($name), utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
@@ -52,13 +55,14 @@ class ImportPdfController extends AbstractController
             $destination = $this->getParameter('images_directory');
             // On déplace le fichier dans images_directory -> qui relate Upload du fichier Public
             $img_pdf->move($destination, $title_pdf);
-            $pdf->setPathPdf($title_pdf);
-            
+            $pdf->setPathPdf($title_pdf);            
+            $pdf->setDate(new \DateTime("now"));
+            $pdf->setTitle($name);
+            // On l'enregistre en base de donnée
             $em = $this->getDoctrine()->getManager();
             $em->persist($pdf);
             $em->flush();
             
-
             return $this->redirectToRoute('admin_gazette_home');
         }
 
@@ -87,5 +91,17 @@ class ImportPdfController extends AbstractController
         return $this->render('admin/import_pdf/ajout.html.twig', [
             'form' => $form->createView()
         ]);
+    }
+
+    /**
+     * @Route("/supprimer/{id}", name="supprimer")
+     */
+    public function delete(Request $request, ImportPdf $pdf): Response
+    {
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($pdf);
+            $em->flush();
+        
+        return $this->redirectToRoute('admin_gazette_home', [], Response::HTTP_SEE_OTHER);
     }
 }

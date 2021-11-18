@@ -3,33 +3,29 @@
 {% block title %}Gérer les photos{% endblock %}
 
 {% block content %}
-    <h1>Gérer les photos</h1>
-
-    <table class="table">
-        <thead class="tableau-admin">
-            <tr>
+	<h1 class="titre-form">Gérer les photos</h1>
+    <a href="{{ path("admin_photo_ajout") }}" class="btn">Ajouter une/des photos</a>
+	<table class="table striped responsive-table">
+		<thead>
+			<tr class="tableau-admin">
                 <th>Photo</th>
-                <th>Date</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for import_photo in import_photos %}
-            <tr class="tableau-admin">
-                <td><img src="/upload/{{ import_photo.pathPhoto }}"></td>
+				<th>Date</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+        {% for import_photo in import_photos %}            
+			<tr class="tableau-admin">
+                <td><img class="image-index" src="/upload/{{ import_photo.pathPhoto }}" ></td>
                 <td>{{ import_photo.Date ? import_photo.Date|date('d/m/Y H:i:s') : '' }}</td>
-                <td>
-                    <a href="{{ path('admin_photo_voir', {'id': import_photo.id}) }}"><i class="material-icons">visibility</i></a>
-                    <a href="{{ path('admin_photo_modifier', {'id': import_photo.id}) }}"><i class="material-icons">mode_edit</i></a>
+				<td class="text-center">
+                    <a href="{{ path("admin_photo_modifier", {id: import_photo.id}) }}" class="btn bouton-index">Modifier</a>
+					<form action="{{ path('admin_photo_supprimer', {'id': import_photo.id}) }}" onsubmit="return confirm('Êtes-vous sur de vouloir supprimer cette photo ?');">
+						<button class="btn bouton-index">Supprimer</button>
+					</form>
                 </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">Aucune entrée trouvé</td>
-            </tr>
+			</tr>
         {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('admin_photo_ajout') }}">Créer une nouvelle entrée</a>
+		</tbody>
+	</table>
 {% endblock %}

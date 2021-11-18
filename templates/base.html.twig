@@ -20,10 +20,7 @@
 			</noscript>
 		{% endblock %}
 
-		{% block javascripts %}
-			{{ encore_entry_script_tags('materialize') }}
-			{{ encore_entry_script_tags('app') }}
-		{% endblock %}
+
 	</head>
 
 	<main>
@@ -39,4 +36,8 @@
 	{% block footer %}
 		{% include './block/footer.html.twig' %}
 	{% endblock %}
+		{% block javascripts %}
+			{{ encore_entry_script_tags('materialize') }}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
 </html>
