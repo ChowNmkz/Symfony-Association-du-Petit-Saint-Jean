@@ -19,7 +19,7 @@
 					<tr>
 						<td>{{doleances.date|date("d/m/Y")}}</td>
 						<td>{{doleances.title}}</td>
-						<td>{{doleances.description}}</td>
+						<td><p class="desc-doleance">{{doleances.description}}<p></td>
 						<td class="text-center">
 							<a href="{{ path("admin_doleances_modifier", {id: doleances.id}) }}" class="btn bouton-index">Modifier</a>
 							<form action="{{ path('admin_doleances_supprimer', {'id': doleances.id}) }}" onsubmit="return confirm('Êtes-vous sur de vouloir supprimer cette doléances ?');">

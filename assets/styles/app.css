@@ -1,4 +1,4 @@
-/* CSS qui gére le style général du site  */
+/* Gerer le style général du site  */
 
 * {
   font-family: open sans;
@@ -71,7 +71,8 @@ h5.titre-administration {
   text-align: center;
 }
 
-/* CSS lié au formulaires de l'interface d'administration */ 
+/* Formulaires de l'interface d'administration de Seblagrenouille */ 
+
 .bouton-index{
   margin: 3px;
 }
@@ -94,6 +95,13 @@ h5.titre-administration {
 
 .titre-form{
  text-align: center;
+}
+
+.desc-doleance{
+  width: 50%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 /* CSS lié aux affichages d'index de l'interface d'administration */
