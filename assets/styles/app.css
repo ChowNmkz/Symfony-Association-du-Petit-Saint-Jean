@@ -16,24 +16,52 @@ main {
   flex: 1 0 auto;
 }
 
-nav ul a {
-  color: #010101;
+
+/* Navbar index */
+
+nav {
+  background-color: #353935;
+  color: #ffffec;
+  height: 56px;
+  line-height: 56px;
+  width: 100%;
 }
 
-/* Balise qui sont utiliser sur la SideNav du menu Administration */
+/* Footer index */
+
+.page-footer {
+  padding-top: 10px;
+  background-color: #353935;
+}
+
+.text-footer {
+  color: #FFFFEC;
+}
+
+.link-footer {
+  padding-left: 25px;
+  color: #FFFFEC;
+}
+
+.divider {
+  background-color: #ffffec;
+}
+
+
+/* SideNav du menu Administration */
 .sidenav {
   background-color: #353935;
   color: #ffffec;
 }
 
-.sidenav li > a {
+.sidenav li>a {
   color: #ffffec;
 }
 
-.sidenav li > a > i,
-.sidenav li > a > [class^="mdi-"],
-.sidenav li > a li > a > [class*="mdi-"],
-.sidenav li > a > i.material-icons {
+.sidenav li>a>i,
+.sidenav li>a>[class^="mdi-"],
+.sidenav li>a li>a>[class*="mdi-"],
+.sidenav li>a>i.material-icons {
   color: #63bce8;
 }
 
@@ -66,124 +94,131 @@ h5.titre-administration {
   color: #ffffec;
 }
 
-.tableau-admin > th,
-.tableau-admin > td {
+.tableau-admin>th,
+.tableau-admin>td {
   text-align: center;
 }
 
-/* Formulaires de l'interface d'administration de Seblagrenouille */ 
+/* Form interface admin */
 
-.bouton-index{
+.parallax-container {
+  height: 250px;
+}
+
+.bouton-index {
   margin: 3px;
 }
 
-.bouton-valider{
+.bouton-valider {
   background-color: #353935;
   display: block;
   margin: auto;
   width: fit-content;
 }
 
-.btn, .btn-large, .btn-small{
+.btn,
+.btn-large,
+.btn-small {
   background-color: #353935;
 
 }
 
-.input-field>label{
-  color:#353935;
+.input-field>label {
+  color: #353935;
 }
 
-.titre-form{
- text-align: center;
+.titre-form {
+  text-align: center;
 }
 
-.desc-doleance{
+.desc-doleance {
   width: 50%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-/* CSS lié aux affichages d'index de l'interface d'administration */
+/* Affichage index interface admin */
 
-.image-index{
+.image-index {
   border-radius: 5px;
   height: 150px;
   width: 150px;
   object-fit: cover;
 }
 
-/* CSS lié aux cards de l'interface d'administration */
+/* Cards affichage menu admin */
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
-    .card-row{
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 12px;
-        justify-content: space-evenly;
-        margin-top: calc(100% / 20);
-        margin-bottom: calc(100% / 20);
-    }
+.card-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-evenly;
+  margin-top: calc(100% / 20);
+  margin-bottom: calc(100% / 20);
+}
 
-    .card-pers {
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-        font-family: 'Roboto';
-        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.404);
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-        width: fit-content;
-        flex: 1 0 calc( 25% - 24px);
-        margin: 5px 5px 10px 5px;
-      }
+.card-pers {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  font-family: 'Roboto';
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.404);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: fit-content;
+  flex: 1 0 calc(25% - 24px);
+  margin: 5px 5px 10px 5px;
+}
 
-    .card-pers:hover {
-        cursor: pointer;
-    }
-    .card-pers:hover .card-header {
-        background-color: #141313;
-    }
+.card-pers:hover {
+  cursor: pointer;
+}
 
-    .card-header {
-        background: #353935;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-        color: #ffffec;
-        font-size: 18px;
-        font-weight: bold;
-        height: fit-content;
-        padding: 15px;
-        text-align: center;
-        transition: 0.3s;
-    }
+.card-pers:hover .card-header {
+  background-color: #141313;
+}
 
-    .card-container {
-        background-color: #ffffea;
-        font-weight: bold;
-        padding: 5px 15px;
-    }
+.card-header {
+  background: #353935;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  color: #ffffec;
+  font-size: 18px;
+  font-weight: bold;
+  height: fit-content;
+  padding: 15px;
+  text-align: center;
+  transition: 0.3s;
+}
 
-    .card-desc {
-        margin: 15px 5px;
-        text-align: center;
-        color:#353935;
-      }
+.card-container {
+  background-color: #ffffea;
+  font-weight: bold;
+  padding: 5px 15px;
+}
 
-    .card-act {
-        display: list-item;
-        margin: 0 40px 20px 40px;
-        color:#353935;
-    }
+.card-desc {
+  margin: 15px 5px;
+  text-align: center;
+  color: #353935;
+}
 
-    .image-admin{
-      border-radius: 5px;
-      display: block;
-      height: 150px;
-      width: 150px;
-      object-fit: cover;
-      margin-left: auto;
-      margin-right: auto;
-    }
+.card-act {
+  display: list-item;
+  margin: 0 40px 20px 40px;
+  color: #353935;
+}
+
+.image-admin {
+  border-radius: 5px;
+  display: block;
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+}

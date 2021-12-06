@@ -5,28 +5,59 @@
 {% endblock %}
 
 {% block content %}
+      <!-- Parralax de la page d'acceuil  -->
 <div class="parallax-container">
   <div class="parallax">
     <img src="img/image0.jpg"></div>
   </div>
-  <div class="section white">
-    <div class="row container">
-      <h2 class="header">
-        Notre comité
-      </h2>
-      <p>
-        Nous sommes disponibles pour entendre vos remarques et propositions sur la vie du quartier et pour l'amélioration du quotidien et du vivre-ensemble. 
-        26 quartiers composent le territoire d'Amiens. Chacun de ces quartiers est représenté par un comité de quartier, structure associative ouverte à tous les résidents.
-        <br><br>
-        Les comités de quartier sont le relais des demandes des habitants et sont un partenaire privilégié de la municipalité par leur connaissance approfondie de leur secteur.
-        Ce sont nos adhérents qui font la force du comité et qui permettent de faire face aux enjeux de notre quartier. 
-        Plus nous serons nombreux, plus la voix des habitants pourra se faire entendre ! 
-        Votre soutien est primordial ! Aidez-nous à rendre le quartier dynamique et animé !
-      </p>
-    </div>
+    <div class="row container "> 
+        <!-- Présentation du comité de quartier -->
+        <div class="col s12 l9">
+          <h2 class="header">
+            Notre comité
+          </h2>
+          <p>
+            Nous sommes disponibles pour entendre vos remarques et propositions sur la vie du quartier et pour l'amélioration du quotidien et du vivre-ensemble. 
+            26 quartiers composent le territoire d'Amiens. Chacun de ces quartiers est représenté par un comité de quartier, structure associative ouverte à tous les résidents.
+            <br><br>
+            Les comités de quartier sont le relais des demandes des habitants et sont un partenaire privilégié de la municipalité par leur connaissance approfondie de leur secteur.
+            Ce sont nos adhérents qui font la force du comité et qui permettent de faire face aux enjeux de notre quartier. 
+            Plus nous serons nombreux, plus la voix des habitants pourra se faire entendre ! 
+            Votre soutien est primordial ! Aidez-nous à rendre le quartier dynamique et animé !
+          </p>
+        </div>
+        <!-- Illustration comité de quartier (libre de droit) -->
+        <div class="col s12 l3">
+            <img class="responsive-img" src="img/img-index1.svg" width="100%">
+        </div>
+    
   </div>
-  <div class="parallax-container">
-    <div class="parallax">
-      <img src="img/test.jpg"></div>
-    </div>  
+        <!-- Carousel des commerces du quartier -->
+   <div class="carousel carousel-slider center">
+    {% for commerce in commerce %}    
+      <div class="carousel-item" href="#{{commerce.id}}!">
+        <h2>{{commerce.name}}</h2>
+        <p class="">{{commerce.description}}</p>
+        <p>{{commerce.address}}</p>
+        <p>{{commerce.imgpath}}</p>
+      </div>
+    {% endfor %}
+  </div>
+    <!-- Topic à propos du quartier -->
+    <div class="row">
+      <div class="container light-green lighten-3">
+        <div class="col s12 l4 card-panel teal lighten-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui nihil soluta porro adipisci nostrum veniam. Quisquam unde eligendi exercitationem aliquid deserunt ratione delectus ipsa at! Optio laborum aperiam repudiandae mollitia?</div>
+        <div class="col s12 l4 card-panel teal lighten-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui nihil soluta porro adipisci nostrum veniam. Quisquam unde eligendi exercitationem aliquid deserunt ratione delectus ipsa at! Optio laborum aperiam repudiandae mollitia?</div>
+        <div class="col s12 l4 card-panel teal lighten-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui nihil soluta porro adipisci nostrum veniam. Quisquam unde eligendi exercitationem aliquid deserunt ratione delectus ipsa at! Optio laborum aperiam repudiandae mollitia?</div>
+      </div>
+    </div>
+
+    
+
+
+
+
+
+
+  </div>
 {% endblock %}
